@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfAppA11.Consulta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppA11"
+        mc:Ignorable="d"
+        Title="Consulta" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="Empleat" Margin="20,10"/>
+            <ComboBox Name="cbEmpleats" Grid.Row="0" Width="150" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,5"
+                  DisplayMemberPath="LastName" SelectedValuePath="EmployeeID" SelectionChanged="cbEmpleats_SelectionChanged"/>
+        </StackPanel>
+        <DataGrid Name="dgOrders" Grid.Row="1" Margin="20,10" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Comanda" Binding="{Binding OrderID}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Data Env." Binding="{Binding ShippedDate}"/>
+                <DataGridTextColumn Header="Import" Binding="{Binding Freight}"/>
+                <DataGridTextColumn Header="Pais" Binding="{Binding ShipCountry}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
